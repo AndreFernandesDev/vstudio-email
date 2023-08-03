@@ -25,7 +25,7 @@ let mailOptions = {
 };
 
 app.get("/", (req, res) => {
-  res.send("Hello World. This is an auto deploy!");
+  res.send("Hello World. This is an auto deploy | V2!");
 });
 
 app.get("/hello", (req, res) => {
