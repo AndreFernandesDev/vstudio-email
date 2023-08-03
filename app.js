@@ -68,7 +68,7 @@ app.get("/send", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("Email sent successfully!");
+      res.send("Email sent successfully!");
     }
   });
 });
