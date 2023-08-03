@@ -23,16 +23,16 @@ let mailOptions = {
   html: "<h1>first email send from Nodejs</h1>",
 };
 
-transporter.sendMail(mailOptions, (err, success) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Email sent successfully!");
-  }
-});
-
 app.get("/hello", (req, res) => {
   res.send("Hello World!");
+
+  transporter.sendMail(mailOptions, (err, success) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Email sent successfully!");
+    }
+  });
 });
 
 app.listen(port, () => {
