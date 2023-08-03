@@ -19,4 +19,6 @@ jobs:
           REMOTE_HOST: "ec2-54-158-179-3.compute-1.amazonaws.com"
           REMOTE_USER: "ec2-user"
           TARGET: "/home/ec2-user/vstudio-email"
-          EXCLUDE: "/dist/, /node_modules/, **.env, rebuild_app.sh, watcher.sh"
+          EXCLUDE: "/dist/, /node_modules/, **.env"
+          SCRIPT_AFTER: |
+            systemctl restart vstudioemail.service
