@@ -21,4 +21,4 @@ jobs:
           TARGET: "/home/ec2-user/vstudio-email"
           EXCLUDE: "/dist/, /node_modules/, **.env"
           SCRIPT_AFTER: |
-            systemctl restart vstudioemail.service
+            sudo systemctl restart vstudioemail.service
