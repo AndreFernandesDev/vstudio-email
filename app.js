@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
   res.send("Thanks Filipino!");
 });
 
-app.get("/", async (req, res) => {
+app.get("/send", async (req, res) => {
   res.status(200).json({ message: "Sent!" });
   const payload = {
     greeting: "Olá",
