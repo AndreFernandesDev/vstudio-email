@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/send", async (req, res) => {
+  res.json({ status: 200, message: "Sent!" });
   const payload = {
     greeting: "Olá",
     greetingText: "Recebeu uma mensagem no seu website",
@@ -46,10 +47,8 @@ app.get("/send", async (req, res) => {
   });
 
   mapped = mapped.join("\n");
-
   const render = "---\n " + mapped + " \n---" + notice;
 
-  console.log(render);
   const { html } = await Maizzle.render(render, {
     tailwind: {
       config: require("./tailwind.config.js"),
@@ -59,7 +58,7 @@ app.get("/send", async (req, res) => {
 
   let mailOptions = {
     from: "info@vitoria.studio",
-    to: "andre.fernandesdev@outlook.com",
+    to: "info@vitoria.studio",
     subject: "VStudio | Nova Mensagem!",
     html: html,
   };
