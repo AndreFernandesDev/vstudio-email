@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
 //   res.send("Thanks Filipino!");
 // });
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   res.send("Sent!");
   // const payload = {
   //   greeting: "Olá",
