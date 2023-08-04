@@ -20,11 +20,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Thanks Filipino!");
-// });
-
 app.get("/", (req, res) => {
+  res.send("Thanks Filipino!");
+});
+
+app.get("/send", (req, res) => {
   res.send("Sent!");
   // const payload = {
   //   greeting: "Olá",
