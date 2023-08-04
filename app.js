@@ -24,22 +24,27 @@ app.get("/", (req, res) => {
   res.send("Thanks Filipino!");
 });
 
-app.get("/send", async (req, res) => {
-  res.status(200).json({ message: "Sent!" });
-  const payload = {
+const langs = {
+  pt: {
     greeting: "Olá",
     greetingText: "Recebeu uma mensagem no seu website",
     cardTitle: "Detalhes",
+    bottomText: "Entregue por",
+  },
+  en: {
+    greeting: "Hello",
+    greetingText: "You have received a new message on your website.",
+    cardTitle: "Details",
     bottomText: "Delivered by",
-    details: [
-      { name: "Nome", value: "Dê" },
-      { name: "Email", value: "dede@gmail.com" },
-      {
-        name: "Mensagem",
-        value:
-          "Eu quero estar com a minha beta grande, mas ela nao gota de eu... Estou tristeeeee",
-      },
-    ],
+  },
+};
+
+app.post("/send", async (req, res) => {
+  const { to, details = [], lng = "en" } = req.body;
+  const payload = {
+    ...langs[lng],
+    details,
+    // { name: "Nome", value: "Dê" },
   };
 
   let mapped = Object.keys(payload).map((key) => {
@@ -58,7 +63,7 @@ app.get("/send", async (req, res) => {
 
   let mailOptions = {
     from: "info@vitoria.studio",
-    to: "info@vitoria.studio",
+    to: to,
     subject: "VStudio | Nova Mensagem!",
     html: html,
   };
@@ -67,7 +72,7 @@ app.get("/send", async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.send("Email sent successfully!");
+      res.status(200).json({ message: "Sent!" });
     }
   });
 });
