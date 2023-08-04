@@ -41,10 +41,19 @@ const langs = {
 
 app.post("/send", async (req, res) => {
   const { to, details = [], lng = "en" } = req.body;
+  if (!to) {
+    return res
+      .status(500)
+      .json({ message: "Missing address. Ex: 'to: email@gmail.com'" });
+  }
+
+  if (!details) {
+    return res.status(500).json({ message: "Missing details." });
+  }
+
   const payload = {
     ...langs[lng],
     details,
-    // { name: "Nome", value: "Dê" },
   };
 
   let mapped = Object.keys(payload).map((key) => {

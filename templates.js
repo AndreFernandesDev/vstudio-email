@@ -35,15 +35,15 @@ const notice = `
         <table align="center" class="shadow-md">
         <tr>
             <td class="w-[552px] max-w-full">
-            <div class="text-center">
-                <a class="block bg-white" href="https://www.vitoria.studio">
-                <img
-                    class="w-full"
-                    src="https://drive.google.com/uc?export=view&id=1_ou3UxGNHWnAhM8yBa2e3pogXOkVuGKI"
-                    alt="VitoriaStudio"
-                />
-                </a>
-            </div>
+              <div class="text-center">
+                  <a class="block bg-white" href="https://www.vitoria.studio">
+                  <img
+                      class="w-full"
+                      src="https://drive.google.com/uc?export=view&id=1_ou3UxGNHWnAhM8yBa2e3pogXOkVuGKI"
+                      alt="VitoriaStudio"
+                  />
+                  </a>
+              </div>
 
               <table class="w-full text-center leading-normal text-neutral-15">
                 <tr>
@@ -52,14 +52,14 @@ const notice = `
                       {{page.greeting}}
                     </h1>
 
-                    <p class="m-0 uppercase font-medium">
+                    <p class="m-0 uppercase">
                       {{page.greetingText}}
                     </p>
                   </td>
                 </tr>
               </table>
               <table
-                class="mx-10 sm:mx-5 p-12 pb-0 border-2 border-neutral-90 rounded-lg border-solid text-center"
+                class="mx-auto w-full max-w-[480px] p-12 pb-0 border-2 border-neutral-90 rounded-lg border-solid text-center"
               >
                 <tr>
                   <td>
