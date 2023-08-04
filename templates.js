@@ -52,7 +52,7 @@ const notice = `
                       {{page.greeting}}
                     </h1>
 
-                    <p class="m-0 uppercase">
+                    <p class="m-0 mt-2">
                       {{page.greetingText}}
                     </p>
                   </td>
