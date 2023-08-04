@@ -25,51 +25,51 @@ const transporter = nodemailer.createTransport({
 // });
 
 app.get("/", async (req, res) => {
-  res.status(200).json({ message: "Sent!" });
-  const payload = {
-    greeting: "Olá",
-    greetingText: "Recebeu uma mensagem no seu website",
-    cardTitle: "Detalhes",
-    bottomText: "Delivered by",
-    details: [
-      { name: "Nome", value: "Dê" },
-      { name: "Email", value: "dede@gmail.com" },
-      {
-        name: "Mensagem",
-        value:
-          "Eu quero estar com a minha beta grande, mas ela nao gota de eu... Estou tristeeeee",
-      },
-    ],
-  };
+  res.send("Sent!");
+  // const payload = {
+  //   greeting: "Olá",
+  //   greetingText: "Recebeu uma mensagem no seu website",
+  //   cardTitle: "Detalhes",
+  //   bottomText: "Delivered by",
+  //   details: [
+  //     { name: "Nome", value: "Dê" },
+  //     { name: "Email", value: "dede@gmail.com" },
+  //     {
+  //       name: "Mensagem",
+  //       value:
+  //         "Eu quero estar com a minha beta grande, mas ela nao gota de eu... Estou tristeeeee",
+  //     },
+  //   ],
+  // };
 
-  let mapped = Object.keys(payload).map((key) => {
-    return key + ": " + JSON.stringify(payload[key]);
-  });
+  // let mapped = Object.keys(payload).map((key) => {
+  //   return key + ": " + JSON.stringify(payload[key]);
+  // });
 
-  mapped = mapped.join("\n");
-  const render = "---\n " + mapped + " \n---" + notice;
+  // mapped = mapped.join("\n");
+  // const render = "---\n " + mapped + " \n---" + notice;
 
-  const { html } = await Maizzle.render(render, {
-    tailwind: {
-      config: require("./tailwind.config.js"),
-    },
-    maizzle: require("./config.js"),
-  });
+  // const { html } = await Maizzle.render(render, {
+  //   tailwind: {
+  //     config: require("./tailwind.config.js"),
+  //   },
+  //   maizzle: require("./config.js"),
+  // });
 
-  let mailOptions = {
-    from: "info@vitoria.studio",
-    to: "info@vitoria.studio",
-    subject: "VStudio | Nova Mensagem!",
-    html: html,
-  };
+  // let mailOptions = {
+  //   from: "info@vitoria.studio",
+  //   to: "info@vitoria.studio",
+  //   subject: "VStudio | Nova Mensagem!",
+  //   html: html,
+  // };
 
-  transporter.sendMail(mailOptions, (err, success) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send("Email sent successfully!");
-    }
-  });
+  // transporter.sendMail(mailOptions, (err, success) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     res.send("Email sent successfully!");
+  //   }
+  // });
 });
 
 app.listen(port, () => {
